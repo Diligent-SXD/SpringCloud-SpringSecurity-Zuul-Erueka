@@ -1,0 +1,23 @@
+server:
+  port: 8761 # 服务端口
+spring:
+  security:
+    user:
+      name: root
+      password: 123456
+  application:
+    name: eureka-server
+eureka:
+  instance:
+    hostname: localhost # eureka服务端的实例名称
+  client:
+    registerWithEureka: false # 服务注册，false表示不将自已注册到Eureka服务中
+    fetchRegistry: false # 服务发现，false表示自己不从Eureka服务中获取注册信息
+    serviceUrl: # Eureka客户端与Eureka服务端的交互地址，集群版配置对方的地址，单机版配置自己（如果不配置则默认本机8761端口）
+      #集群版
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.hostname}:${server.port}/eureka/
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"

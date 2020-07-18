@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="microservice-cloud-student-9999" />
+        <module name="microservice-cloud-getway-6000" />
+        <module name="microservice-cloud-auth-9200" />
+        <module name="microservice-cloud-eureka-8761" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="microservice-cloud-api" target="1.8" />
+      <module name="microservice-cloud-auth" target="1.8" />
+      <module name="microservice-cloud-auth-9200" target="1.8" />
+      <module name="microservice-cloud-eureka-8761" target="1.8" />
+      <module name="microservice-cloud-getway-6000" target="1.8" />
+      <module name="microservice-cloud-main" target="1.8" />
+      <module name="microservice-cloud-student-9999" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="microservice-cloud-api" options="-parameters" />
+      <module name="microservice-cloud-auth" options="-parameters" />
+      <module name="microservice-cloud-auth-9200" options="-parameters" />
+      <module name="microservice-cloud-eureka-8761" options="-parameters" />
+      <module name="microservice-cloud-getway-6000" options="-parameters" />
+      <module name="microservice-cloud-student-9999" options="-parameters" />
+    </option>
+  </component>
+</project>

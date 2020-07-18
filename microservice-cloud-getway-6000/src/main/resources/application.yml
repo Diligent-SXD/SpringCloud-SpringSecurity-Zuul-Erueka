@@ -1,0 +1,73 @@
+server:
+  port: 6000
+
+spring:
+  application:
+    name: project-gateway
+  security:
+    user:
+      name: root
+      password: 123456
+#--------------------eureka---------------------
+eureka:
+  client:
+    registerWithEureka: true # 服务注册开关
+    fetchRegistry: true # 服务发现开关
+    serviceUrl: # 注册到哪一个Eureka Server服务注册中心，多个中间用逗号分隔
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@localhost:8761/eureka/
+  instance:
+    instanceId: ${spring.application.name}:${server.port}
+    prefer-ip-address: true #访问路径显示为ip地址
+#--------------------Zuul-----------------------
+zuul:
+  routes:
+    project-auth:
+      path: /auth/**
+      serviceId: project-auth
+      sensitiveHeaders: "*"
+      stripPrefix: false
+    project-student: # 路由名称，名称任意，保持所有路由名称唯一
+      path: /student/** # 访问路径
+      serviceId: project-student # 指定服务ID，会自动从Eureka中找到此服务的ip和端口
+      sensitiveHeaders: "*"
+      stripPrefix: false # 代理转发时去掉前缀，false:代理转发时不去掉前缀 例如:为true时请求 /product/get/1，代理转发到/get/1
+  retryable: false
+  ignored-services: "*"
+  ribbon:
+    eager-load:
+      enabled: true
+  host:
+    connect-timeout-millis: 60000
+    socket-timeout-millis: 60000
+  add-proxy-headers: true
+
+#---------------------OAuth2---------------------
+#security:
+#  oauth2:
+#    client:
+#      access-token-uri: http://localhost:${server.port}/auth/oauth/token
+#      user-authorization-uri: http://localhost:${server.port}/auth/oauth/authorize
+#      client-id: root
+#      client-secret: 123456
+#    resource:
+#      # 配置userinfo的url地址
+#      user-info-uri:  http://localhost:${server.port}/auth/api/user
+#      prefer-token-info: false
+
+#----------------------超时配置-------------------
+ribbon:
+  ReadTimeout: 60000
+  ConnectTimeout: 60000
+  MaxAutoRetries: 1
+  MaxAutoRetriesNextServer: 2
+  eureka:
+    enabled: true
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: true
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000

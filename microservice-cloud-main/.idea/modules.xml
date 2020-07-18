@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../microservice-cloud-api/microservice-cloud-api.iml" filepath="$PROJECT_DIR$/../microservice-cloud-api/microservice-cloud-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../microservice-cloud-auth-9200/microservice-cloud-auth-9200.iml" filepath="$PROJECT_DIR$/../microservice-cloud-auth-9200/microservice-cloud-auth-9200.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../microservice-cloud-eureka-8761/microservice-cloud-eureka-8761.iml" filepath="$PROJECT_DIR$/../microservice-cloud-eureka-8761/microservice-cloud-eureka-8761.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../microservice-cloud-getway-6000/microservice-cloud-getway-6000.iml" filepath="$PROJECT_DIR$/../microservice-cloud-getway-6000/microservice-cloud-getway-6000.iml" />
+      <module fileurl="file://$PROJECT_DIR$/microservice-cloud-main.iml" filepath="$PROJECT_DIR$/microservice-cloud-main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../microservice-cloud-student-9999/microservice-cloud-student-9999.iml" filepath="$PROJECT_DIR$/../microservice-cloud-student-9999/microservice-cloud-student-9999.iml" />
+    </modules>
+  </component>
+</project>
